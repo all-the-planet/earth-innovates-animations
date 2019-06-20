@@ -77,6 +77,9 @@
   .c4 {
     background: rgb(29, 96, 42);
   }
+  h1, h2 {
+      margin-left: 1rem;
+}
 </style>
 
 <!-- <progress value={$progress}></progress> -->
@@ -84,7 +87,14 @@
 
 <!-- <input type="text" bind:this={boxInput}>
 <button on:click={addBox}>Add</button> -->
-
+<h1>Contributions</h1>
+<h2>Yearly ~ 48 work weeks</h2>
+<section class="year">
+  {#each boxes as box (box)}
+    <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
+  {/each}
+</section>
+<h2>Daily average ~ 48 half hours</h2>
 <section class="year">
   {#each boxes as box (box)}
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
