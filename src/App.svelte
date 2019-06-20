@@ -98,8 +98,9 @@
       }
     }, 1);
 
-    if (i === 335) {
-      console.log(i);
+
+
+    if (i >= 335) {
       return () => {
         clearInterval(interval);
       };
@@ -121,7 +122,6 @@
     }, 1);
 
     if (i >= 335) {
-      console.log(i);
       return () => {
         clearInterval(interval);
       };
