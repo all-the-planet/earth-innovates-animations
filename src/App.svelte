@@ -109,11 +109,13 @@
     function playReal() {
     let i = 0;
     let commits = 0;
+    let normalized = 0;
     let interval = setInterval(() => {
       if (i < 335) {
         i++;
         commits = Math.floor(5 * Math.random());
-        addHalf(i, commits, Math.floor(norm[Math.floor((i/7))%48]*commits));
+        normalized = Math.floor(norm[Math.floor((i/7))%48]*commits);
+        addHalf(i, commits, normalized > 0 ? 1 : 0 );
         console.log(i/7, norm[(i/7)%48]);
       }
     }, 1);
