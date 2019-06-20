@@ -22,6 +22,10 @@
   // }
   // let boxes = [{ id: 0, commit: 0 }];
   
+// normal distribution param n[]
+    const norm = [0,0,0,0,0,0,0,0,0, 0.0013, 0.0228, 0.1587, 0.5000, 0.8413, 0.9772, 0.9987, 1,1,1,1,1,1,1,1,1,
+               1,1,1,1,1,1,1,1,1, 0.9987, 0.9772, 0.8413, 0.5000, 0.1587, 0.0228, 0.0013, 0,0,0,0,0,0,0,0,0];
+
   let boxes = [{ "id": 0, "commit": Math.floor(5 * Math.random()) }];
 
   function addBox(id, commit) {
@@ -38,11 +42,12 @@
       i++;
       addBox(i, Math.floor(5 * Math.random()));
       // i++;
-      console.log(boxes[i]);
+      // console.log(boxes[i]);
     }
   }, 1);
 
   console.log(boxes[i]);
+
 </script>
 
 <style>
@@ -87,16 +92,22 @@
 
 <!-- <input type="text" bind:this={boxInput}>
 <button on:click={addBox}>Add</button> -->
-<h1>Contributions</h1>
+<h1>Progressive Contributions (animated)</h1>
 <h2>Yearly ~ 48 work weeks</h2>
 <section class="year">
   {#each boxes as box (box)}
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
-<h2>Daily average ~ 48 half hours</h2>
+<h2>Earth's Daily average ~ 48 half hours</h2>
 <section class="year">
   {#each boxes as box (box)}
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
+  {/each}
+</section>
+<h2>Individual Daily average ~ 48 half hours</h2>
+<section class="year">
+  {#each boxes as box (box)}
+    <div class="c{Math.floor(box.commit*norm[box.id])}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
