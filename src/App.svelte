@@ -89,10 +89,9 @@
     halves = [...halves, { id: id, commit: commit, real: real }];
   }
 
-
-
   // add days div squares with a short delay
-  let days = 336;
+  let days = 336; // 336 = 7days * 48weeks - avg work year cycle
+  let buffer = 335;
 
   function play() {
     let i = 0;
@@ -103,13 +102,13 @@
         addBox(i, Math.floor(5 * Math.random()));
       }
       // remove first elements after buffer lenght reached 
-      if (i >=335 ) {
+      if (i >= 335) {
           i++;
           discardBox(i - 335);
       }
     }, 1);
 
-    if (i >= 2 * 335) {
+    if (i >= 3 * 335) {
       return () => {
         clearInterval(interval);
       };
