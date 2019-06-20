@@ -21,15 +21,66 @@
   //     addBox(i.toString());
   // }
   // let boxes = [{ id: 0, commit: 0 }];
-  
-// normal distribution param n[]
-    const norm = [0,0,0,0,0,0,0,0,0, 0.0013, 0.0228, 0.1587, 0.5000, 0.8413, 0.9772, 0.9987, 1,1,1,1,1,1,1,1,1,
-               1,1,1,1,1,1,1,1,1, 0.9987, 0.9772, 0.8413, 0.5000, 0.1587, 0.0228, 0.0013, 0,0,0,0,0,0,0,0,0];
 
-  let boxes = [{ "id": 0, "commit": Math.floor(5 * Math.random()) }];
+  // normal distribution param n[]
+  const norm = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.0013,
+    0.0228,
+    0.1587,
+    0.5,
+    0.8413,
+    0.9772,
+    0.9987,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0.9987,
+    0.9772,
+    0.8413,
+    0.5,
+    0.1587,
+    0.0228,
+    0.0013,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ];
+
+  let boxes = [{ id: 0, commit: Math.floor(5 * Math.random()) }];
+  let halves = [{ id: 0, commit: Math.floor(5 * Math.random()) }];
 
   function addBox(id, commit) {
-    boxes = [...boxes, { "id": id, "commit": commit }];
+    boxes = [...boxes, { id: id, commit: commit }];
   }
 
   let contrib = [];
@@ -37,17 +88,19 @@
 
   // add days div squares with a short delay
   let days = 336;
-  setInterval(() => {
-    if (i < 335) {
-      i++;
-      addBox(i, Math.floor(5 * Math.random()));
-      // i++;
-      // console.log(boxes[i]);
-    }
-  }, 1);
 
-  console.log(boxes[i]);
+  function play() {
+  }
 
+     let interval = setInterval(() => {
+      if (i < 335) {
+        i++;
+        addBox(i, Math.floor(5 * Math.random()));
+      }
+     }, 1);
+    // clearInterval(interval);
+    console.log(boxes[i]);
+  
 </script>
 
 <style>
@@ -82,9 +135,10 @@
   .c4 {
     background: rgb(29, 96, 42);
   }
-  h1, h2 {
-      margin-left: 1rem;
-}
+  h1,
+  h2 {
+    margin-left: 1rem;
+  }
 </style>
 
 <!-- <progress value={$progress}></progress> -->
@@ -93,7 +147,7 @@
 <!-- <input type="text" bind:this={boxInput}>
 <button on:click={addBox}>Add</button> -->
 <h1>Progressive Contributions (animated)</h1>
-<h2>Yearly ~ 48 work weeks</h2>
+<h2 on:click={play}>Yearly ~ 48 work weeks</h2>
 <section class="year">
   {#each boxes as box (box)}
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
@@ -105,9 +159,10 @@
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
-<h2>Individual Daily average ~ 48 half hours</h2>
+
+<!-- <h2>Individual Daily average ~ 48 half hours</h2>
 <section class="year">
-  {#each boxes as box (box)}
-    <div class="c{Math.floor(box.commit*norm[box.id])}" transition:scale={{ duration: 1 }} />
+  {#each halves as half (half)}
+    <div class="c{half.commit}" transition:scale={{ duration: 1 }} />
   {/each}
-</section>
+</section> -->
