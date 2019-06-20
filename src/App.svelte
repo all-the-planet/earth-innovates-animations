@@ -77,30 +77,55 @@
   ];
 
   let boxes = [{ id: 0, commit: Math.floor(5 * Math.random()) }];
-  let halves = [{ id: 0, commit: Math.floor(5 * Math.random()) }];
-
   function addBox(id, commit) {
     boxes = [...boxes, { id: id, commit: commit }];
   }
 
-  let contrib = [];
-  let i = 0;
+  let halves = [{ id: 0, commit: Math.floor(5 * Math.random()), real: 0 }];
+  function addHalf(id, commit, real) {
+    halves = [...halves, { id: id, commit: commit, real: real }];
+  }
 
   // add days div squares with a short delay
   let days = 336;
 
   function play() {
-  }
-
-     let interval = setInterval(() => {
+    let i = 0;
+    let interval = setInterval(() => {
       if (i < 335) {
         i++;
         addBox(i, Math.floor(5 * Math.random()));
       }
-     }, 1);
-    // clearInterval(interval);
-    console.log(boxes[i]);
-  
+    }, 1);
+
+    if (i === 335) {
+      console.log(i);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }
+
+    function playReal() {
+    let i = 0;
+    let commits = 0;
+    let interval = setInterval(() => {
+      if (i < 335) {
+        i++;
+        commits = Math.floor(5 * Math.random());
+        addHalf(i, commits, Math.floor(norm[i%7]*commits));
+        console.log(halves[i]);
+      }
+    }, 1);
+
+    if (i >= 335) {
+      console.log(i);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }
+
 </script>
 
 <style>
@@ -147,6 +172,7 @@
 <!-- <input type="text" bind:this={boxInput}>
 <button on:click={addBox}>Add</button> -->
 <h1>Progressive Contributions (animated)</h1>
+
 <h2 on:click={play}>Yearly ~ 48 work weeks</h2>
 <section class="year">
   {#each boxes as box (box)}
@@ -160,9 +186,9 @@
   {/each}
 </section>
 
-<!-- <h2>Individual Daily average ~ 48 half hours</h2>
+<h2 on:click={playReal}>Individual Daily average ~ 48 half hours</h2>
 <section class="year">
   {#each halves as half (half)}
-    <div class="c{half.commit}" transition:scale={{ duration: 1 }} />
+    <div class="c{half.real}" transition:scale={{ duration: 1 }} />
   {/each}
-</section> -->
+</section>
