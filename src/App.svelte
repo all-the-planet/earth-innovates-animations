@@ -44,5 +44,5 @@
 <button on:click={addBox}>Add</button>
 
 {#each boxes as box (box)} 
-    <div transition:fade>{box}</div>
+    <div transition:scale>{box}</div>
 {/each}
