@@ -113,8 +113,8 @@
       if (i < 335) {
         i++;
         commits = Math.floor(5 * Math.random());
-        addHalf(i, commits, Math.floor(norm[i%7]*commits));
-        console.log(halves[i]);
+        addHalf(i, commits, Math.floor(norm[Math.floor((i/7))%48]*commits));
+        console.log(i/7, norm[(i/7)%48]);
       }
     }, 1);
 
