@@ -6,63 +6,77 @@
 
   import Spring from "./Spring.svelte";
 
-  let boxInput;
+  //   let boxInput;
 
-  const progress = tweened(0, {
-    delay: 0,
-    duration: 400, // default = 400
-    easing: cubicIn
-  });
+  //   const progress = tweened(0, {
+  //     delay: 0,
+  //     duration: 400, // default = 400
+  //     easing: cubicIn
+  //   });
 
-  setTimeout(() => {
-    progress.set(0.5);
-  }, 1500);
-
-  let boxes = [];
-
-  function addBox(value) {
-    boxes = [...boxes, value];
-  }
-
+  //   setTimeout(() => {
+  //     progress.set(0.5);
+  //   }, 1500);
   // for (let i = 1; i <= 5; i++) {
   //     addBox(i.toString());
   // }
+  // let boxes = [{ id: 0, commit: 0 }];
+  
+  let boxes = [{ "id": 0, "commit": Math.floor(5 * Math.random()) }];
+
+  function addBox(id, commit) {
+    boxes = [...boxes, { "id": id, "commit": commit }];
+  }
 
   let contrib = [];
   let i = 0;
 
-    // add days div squares with a short delay
-    let days = 336;
+  // add days div squares with a short delay
+  let days = 336;
   setInterval(() => {
-    if (i < 336) {
+    if (i < 335) {
       i++;
-      addBox(i);
+      addBox(i, Math.floor(5 * Math.random()));
+      // i++;
+      console.log(boxes[i]);
     }
   }, 1);
+
+  console.log(boxes[i]);
 </script>
 
 <style>
   div {
     font-size: 0.05rem;
-    width: .48rem;
-    height: .48rem;
+    width: 0.48rem;
+    height: 0.48rem;
     margin: 0.1rem;
     padding: 0.05rem;
   }
   .year {
-      margin-top: 1rem;
-      margin-left: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
     height: 5.5rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: start;
   }
-  .c0 { background: #eee }
-  .c1 { background: rgb(199, 227, 143) }
-  .c2 { background: rgb(125, 200, 115) }
-  .c3 { background: rgb(42, 153, 64) }
-  .c4 { background: rgb(29, 96, 42) }
+  .c0 {
+    background: #eee;
+  }
+  .c1 {
+    background: rgb(199, 227, 143);
+  }
+  .c2 {
+    background: rgb(125, 200, 115);
+  }
+  .c3 {
+    background: rgb(42, 153, 64);
+  }
+  .c4 {
+    background: rgb(29, 96, 42);
+  }
 </style>
 
 <!-- <progress value={$progress}></progress> -->
@@ -73,6 +87,6 @@
 
 <section class="year">
   {#each boxes as box (box)}
-    <div class='c{Math.floor(box/66)}' transition:scale={{ duration: 1 }}></div>
+    <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
