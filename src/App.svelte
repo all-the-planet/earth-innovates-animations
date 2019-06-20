@@ -125,7 +125,7 @@
         commits = Math.floor(5 * Math.random());
         normalized = Math.floor(norm[Math.floor((i/7))%48]*commits);
         addHalf(i, commits, normalized > 0 ? 1 : 0 );
-        console.log(i/7, norm[(i/7)%48]);
+        // console.log(i/7, norm[(i/7)%48]);
       }
     }, 1);
 
