@@ -80,27 +80,36 @@
   function addBox(id, commit) {
     boxes = [...boxes, { id: id, commit: commit }];
   }
+  function discardBox(value) {
+      boxes = boxes.filter(el => el.id !== value);
+  }
 
   let halves = [{ id: 0, commit: Math.floor(5 * Math.random()), real: 0 }];
   function addHalf(id, commit, real) {
     halves = [...halves, { id: id, commit: commit, real: real }];
   }
 
+
+
   // add days div squares with a short delay
   let days = 336;
 
   function play() {
     let i = 0;
+    // add a stream of elements
     let interval = setInterval(() => {
       if (i < 335) {
         i++;
         addBox(i, Math.floor(5 * Math.random()));
       }
+      // remove first elements after buffer lenght reached 
+      if (i >=335 ) {
+          i++;
+          discardBox(i - 335);
+      }
     }, 1);
 
-
-
-    if (i >= 335) {
+    if (i >= 2 * 335) {
       return () => {
         clearInterval(interval);
       };
