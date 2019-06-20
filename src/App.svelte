@@ -31,6 +31,8 @@
   let contrib = [];
   let i = 0;
 
+    // add days div squares with a short delay
+    let days = 336;
   setInterval(() => {
     if (i < 336) {
       i++;
@@ -41,11 +43,11 @@
 
 <style>
   div {
-    font-size: 0.1rem;
+    font-size: 0.05rem;
     width: .45rem;
     height: .45rem;
     margin: 0.1rem;
-    padding: 0.1rem;
+    padding: 0.05rem;
   }
   .year {
       margin-top: 1rem;
@@ -71,6 +73,6 @@
 
 <section class="year">
   {#each boxes as box (box)}
-    <div class="c2" transition:scale={{ duration: 1 }}></div>
+    <div class='c{box/50 > 2 ? "1" : "3"}' transition:scale={{ duration: 1 }}></div>
   {/each}
 </section>
