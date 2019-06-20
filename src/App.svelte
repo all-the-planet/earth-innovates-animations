@@ -158,11 +158,16 @@
     margin-top: 1rem;
     margin-left: 1rem;
     height: 5.5rem;
+    width: 38rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: start;
   }
+    .social { background: salmon }
+    .funding { background: yellow }
+    .contributions { background: lightskyblue }
+
   .c0 {
     background: #eee;
   }
@@ -189,23 +194,25 @@
 
 <!-- <input type="text" bind:this={boxInput}>
 <button on:click={addBox}>Add</button> -->
-<h1>Progressive Contributions & Discards</h1>
+<h1>Global Innovation Team</h1>
+<h2>Innovation stream = Contributions x Collaboration</h2>
+<hr>
 
-<h2 on:click={play}>Yearly ~ 48 work weeks</h2>
-<section class="year">
+<h2 on:click={play}>100 x Social Votes</h2>
+<section class="social year">
   {#each boxes as box (box)}
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
-<h2>Earth's Daily average ~ 48 half hours</h2>
-<section class="year">
+<h2>10 x Project Shares</h2>
+<section class="funding year">
   {#each boxes as box (box)}
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
 
-<h2 on:click={playReal}>Individual Daily average ~ 48 half hours</h2>
-<section class="year">
+<h2 on:click={playReal}>1 Innovation Stream</h2>
+<section class="contributions year">
   {#each halves as half (half)}
     <div class="c{half.real}" transition:scale={{ duration: 1 }} />
   {/each}
