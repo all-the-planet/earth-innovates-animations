@@ -44,15 +44,15 @@
 <style>
   div {
     font-size: 0.05rem;
-    width: .45rem;
-    height: .45rem;
+    width: .48rem;
+    height: .48rem;
     margin: 0.1rem;
     padding: 0.05rem;
   }
   .year {
       margin-top: 1rem;
       margin-left: 1rem;
-    height: 6rem;
+    height: 5.5rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -73,6 +73,6 @@
 
 <section class="year">
   {#each boxes as box (box)}
-    <div class='c{box/50 > 2 ? "1" : "3"}' transition:scale={{ duration: 1 }}></div>
+    <div class='c{Math.floor(box/66)}' transition:scale={{ duration: 1 }}></div>
   {/each}
 </section>
