@@ -58,9 +58,9 @@
   }
   .c0 { background: #eee }
   .c1 { background: rgb(199, 227, 143) }
-  .c2 { background: #eee }
-  .c3 { background: #eee }
-  .c4 { background: #eee }
+  .c2 { background: rgb(125, 200, 115) }
+  .c3 { background: rgb(42, 153, 64) }
+  .c4 { background: rgb(29, 96, 42) }
 </style>
 
 <!-- <progress value={$progress}></progress> -->
@@ -71,6 +71,6 @@
 
 <section class="year">
   {#each boxes as box (box)}
-    <div class="c1" transition:scale={{ duration: 1 }}></div>
+    <div class="c2" transition:scale={{ duration: 1 }}></div>
   {/each}
 </section>
