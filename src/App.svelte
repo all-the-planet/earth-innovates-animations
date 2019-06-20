@@ -32,30 +32,35 @@
   let i = 0;
 
   setInterval(() => {
-    if (i < 30) {
+    if (i < 336) {
       i++;
       addBox(i);
     }
-  }, 300);
+  }, 1);
 </script>
 
 <style>
   div {
-    width: 1rem;
-    height: 1rem;
-    background: #ccc;
-    margin: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 5px;
-    padding: 1rem;
+    font-size: 0.1rem;
+    width: .45rem;
+    height: .45rem;
+    margin: 0.1rem;
+    padding: 0.1rem;
   }
   .year {
-    height: 600px;
+      margin-top: 1rem;
+      margin-left: 1rem;
+    height: 6rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: start;
   }
+  .c0 { background: #eee }
+  .c1 { background: rgb(199, 227, 143) }
+  .c2 { background: #eee }
+  .c3 { background: #eee }
+  .c4 { background: #eee }
 </style>
 
 <!-- <progress value={$progress}></progress> -->
@@ -66,6 +71,6 @@
 
 <section class="year">
   {#each boxes as box (box)}
-    <div transition:scale={{ delay: 0, duration: 300 }}>{box}</div>
+    <div class="c1" transition:scale={{ duration: 1 }}></div>
   {/each}
 </section>
