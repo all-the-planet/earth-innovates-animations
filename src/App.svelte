@@ -2,6 +2,7 @@
     import { writable } from "svelte/store";
     import { tweened } from "svelte/motion";
     import { cubicIn } from "svelte/easing";
+    import { fade, fly, slide, scale } from "svelte/transition";
 
     import Spring from "./Spring.svelte";
 
@@ -43,5 +44,5 @@
 <button on:click={addBox}>Add</button>
 
 {#each boxes as box (box)} 
-    <div>{box}</div>
+    <div transition:fade>{box}</div>
 {/each}
