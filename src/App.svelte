@@ -5,6 +5,8 @@
 
     import Spring from "./Spring.svelte";
 
+    let boxInput;
+
     const progress = tweened(0, {
         delay: 0,
         duration: 400,   // default = 400
@@ -15,7 +17,11 @@
         progress.set(0.5);
     }, 1500);
 
-    let boxes = ['Apples', 'Bananas', 'Oranges'];
+    let boxes = [];
+
+    function addBox() {
+        boxes = [...boxes, boxInput.value]
+    }
 </script>
 
 <style>
@@ -32,6 +38,9 @@
 
 <!-- <progress value={$progress}></progress> -->
 <!-- <Spring /> -->
+
+<input type="text" bind:this={boxInput}>
+<button on:click={addBox}>Add</button>
 
 {#each boxes as box (box)} 
     <div>{box}</div>
