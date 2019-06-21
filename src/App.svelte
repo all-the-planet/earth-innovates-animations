@@ -84,6 +84,14 @@
     boxes = boxes.filter(el => el.id !== value);
   }
 
+  let projects = [{ id: 0, commit: Math.floor(5 * Math.random()) }];
+  function addProject(id, commit) {
+    projects = [...projects, { id: id, commit: commit }];
+  }
+  function discardProject(value) {
+    projects = projects.filter(el => el.id !== value);
+  }
+
   let halves = [{ id: 0, commit: Math.floor(5 * Math.random()), real: 0 }];
   function addHalf(id, commit, real) {
     halves = [...halves, { id: id, commit: commit, real: real }];
@@ -93,8 +101,8 @@
   }
 
   // add days div squares with a short delay
-  let days = 336; // 336 = 7days * 48weeks - avg work year cycle
-  let buffer = 335;
+  // let days = 336; // 336 = 7days * 48weeks - avg work year cycle
+  // let buffer = 335;
 
   function play() {
     let i = 0;
@@ -108,6 +116,28 @@
       if (i >= 335) {
         i++;
         discardBox(i - 335);
+      }
+    }, 1);  // end of setInterval
+
+    if (i >= 3 * 335) {
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }
+
+    function playOffice() {
+    let i = 0;
+    // add a stream of elements
+    let interval = setInterval(() => {
+      if (i < 335) {
+        i++;
+        addProject(i, Math.floor(5 * Math.random()));
+      }
+      // remove first elements after buffer lenght reached
+      if (i >= 335) {
+        i++;
+        discardProject(i - 335);
       }
     }, 1);  // end of setInterval
 
@@ -195,23 +225,24 @@
 <!-- <input type="text" bind:this={boxInput}>
 <button on:click={addBox}>Add</button> -->
 <h1>Global Innovation Team</h1>
-<h2>Innovation stream = Contributions x Collaboration</h2>
+<h2>Innovation Stream = Contributions x Collaboration</h2>
 <hr>
 
-<h2 on:click={play}>100 x Social Votes</h2>
+<h2 on:click={play}>100 x Social Votes >></h2>
 <section class="social year">
   {#each boxes as box (box)}
     <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
-<h2>10 x Project Shares</h2>
+
+<h2 on:click={playOffice}>10 x Project Shares >></h2>
 <section class="funding year">
-  {#each boxes as box (box)}
-    <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
+  {#each projects as project (project)}
+    <div class="c{project.commit}" transition:scale={{ duration: 1 }} />
   {/each}
 </section>
 
-<h2 on:click={playReal}>1 Innovation Stream</h2>
+<h2 on:click={playReal}>1 Innovation Stream >></h2>
 <section class="contributions year">
   {#each halves as half (half)}
     <div class="c{half.real}" transition:scale={{ duration: 1 }} />
