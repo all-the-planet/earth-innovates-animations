@@ -185,21 +185,21 @@
     overflow: hidden;
   }
   .social {
-    background: salmon;
+    background: rgba(238, 71, 67, 0.5);
     width: 100vw;
     background-image: url("realtime.png");
     background-position: center;
     background-repeat: no-repeat;
   }
   .funding {
-    background: yellow;
+    background: rgba(141, 191, 89, 0.5);
     width: 100vw;
     background-image: url("monetary.png");
     background-position: center;
     background-repeat: no-repeat;
   }
   .contributions {
-    background: lightskyblue;
+    background: rgba(43, 171, 238, 0.5);
     width: 100vw;
     background-image: url("network.png");
     background-position: center;
