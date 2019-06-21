@@ -186,15 +186,15 @@
   }
   .social {
     background: salmon;
-    width: 100%;
+    width: 100vw;
   }
   .funding {
     background: yellow;
-    width: 100%;
+    width: 100vw;
   }
   .contributions {
     background: lightskyblue;
-    width: 100%;
+    width: 100vw;
   }
   .network {
     height: 5.5rem;
