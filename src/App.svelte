@@ -220,35 +220,32 @@
   }
   h1,
   h2 {
-      text-align: center;
+    text-align: center;
     margin: 1rem;
   }
-
 </style>
 
+<h1>Global Innovation Team</h1>
+<h2>Contributions x Collaboration</h2>
+<hr />
 
-  <h1>Global Innovation Team</h1>
-  <h2>Contributions x Collaboration</h2>
-  <hr />
+<h2>100 x Social Votes >></h2>
+<section class="social network" on:click={play}>
+  {#each boxes as box (box)}
+    <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
+  {/each}
+</section>
 
-  <h2>100 x Social Votes >></h2>
-  <section class="social network" on:click={play}>
-    {#each boxes as box (box)}
-      <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
-    {/each}
-  </section>
+<h2>10 x Project Shares >></h2>
+<section class="funding network" on:click={playOffice}>
+  {#each projects as project (project)}
+    <div class="c{project.commit}" transition:scale={{ duration: 1 }} />
+  {/each}
+</section>
 
-  <h2>10 x Project Shares >></h2>
-  <section class="funding network" on:click={playOffice}>
-    {#each projects as project (project)}
-      <div class="c{project.commit}" transition:scale={{ duration: 1 }} />
-    {/each}
-  </section>
-
-  <h2>1 Innovation Stream >></h2>
-  <section class="contributions network" on:click={playReal}>
-    {#each halves as half (half)}
-      <div class="c{half.real}" transition:scale={{ duration: 1 }} />
-    {/each}
-  </section>
-
+<h2>1 Innovation Stream >></h2>
+<section class="contributions network" on:click={playReal}>
+  {#each halves as half (half)}
+    <div class="c{half.real}" transition:scale={{ duration: 1 }} />
+  {/each}
+</section>
