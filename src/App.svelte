@@ -117,7 +117,7 @@
         i++;
         discardBox(i - 335);
       }
-    }, 1);  // end of setInterval
+    }, 1); // end of setInterval
 
     if (i >= 3 * 335) {
       return () => {
@@ -126,7 +126,7 @@
     }
   }
 
-    function playOffice() {
+  function playOffice() {
     let i = 0;
     // add a stream of elements
     let interval = setInterval(() => {
@@ -139,7 +139,7 @@
         i++;
         discardProject(i - 335);
       }
-    }, 1);  // end of setInterval
+    }, 1); // end of setInterval
 
     if (i >= 3 * 335) {
       return () => {
@@ -165,7 +165,6 @@
         i++;
         discardHalf(i - 335);
       }
-
     }, 1);
 
     if (i >= 3 * 335) {
@@ -184,7 +183,7 @@
     margin: 0.1rem;
     padding: 0.05rem;
   }
-  .year {
+  .network {
     margin-top: 1rem;
     margin-left: 1rem;
     height: 5.5rem;
@@ -194,9 +193,15 @@
     flex-wrap: wrap;
     align-content: start;
   }
-    .social { background: salmon }
-    .funding { background: yellow }
-    .contributions { background: lightskyblue }
+  .social {
+    background: salmon;
+  }
+  .funding {
+    background: yellow;
+  }
+  .contributions {
+    background: lightskyblue;
+  }
 
   .c0 {
     background: #eee;
@@ -215,36 +220,35 @@
   }
   h1,
   h2 {
-    margin-left: 1rem;
+      text-align: center;
+    margin: 1rem;
   }
+
 </style>
 
-<!-- <progress value={$progress}></progress> -->
-<!-- <Spring /> -->
 
-<!-- <input type="text" bind:this={boxInput}>
-<button on:click={addBox}>Add</button> -->
-<h1>Global Innovation Team</h1>
-<h2>Innovation Stream = Contributions x Collaboration</h2>
-<hr>
+  <h1>Global Innovation Team</h1>
+  <h2>Contributions x Collaboration</h2>
+  <hr />
 
-<h2 on:click={play}>100 x Social Votes >></h2>
-<section class="social year">
-  {#each boxes as box (box)}
-    <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
-  {/each}
-</section>
+  <h2>100 x Social Votes >></h2>
+  <section class="social network" on:click={play}>
+    {#each boxes as box (box)}
+      <div class="c{box.commit}" transition:scale={{ duration: 1 }} />
+    {/each}
+  </section>
 
-<h2 on:click={playOffice}>10 x Project Shares >></h2>
-<section class="funding year">
-  {#each projects as project (project)}
-    <div class="c{project.commit}" transition:scale={{ duration: 1 }} />
-  {/each}
-</section>
+  <h2>10 x Project Shares >></h2>
+  <section class="funding network" on:click={playOffice}>
+    {#each projects as project (project)}
+      <div class="c{project.commit}" transition:scale={{ duration: 1 }} />
+    {/each}
+  </section>
 
-<h2 on:click={playReal}>1 Innovation Stream >></h2>
-<section class="contributions year">
-  {#each halves as half (half)}
-    <div class="c{half.real}" transition:scale={{ duration: 1 }} />
-  {/each}
-</section>
+  <h2>1 Innovation Stream >></h2>
+  <section class="contributions network" on:click={playReal}>
+    {#each halves as half (half)}
+      <div class="c{half.real}" transition:scale={{ duration: 1 }} />
+    {/each}
+  </section>
+
