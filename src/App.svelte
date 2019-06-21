@@ -184,29 +184,25 @@
     padding: 0.05rem;
     overflow: hidden;
   }
+  .social {
+    background: salmon;
+    width: 100%;
+  }
+  .funding {
+    background: yellow;
+    width: 100%;
+  }
+  .contributions {
+    background: lightskyblue;
+    width: 100%;
+  }
   .network {
-    color: white;
-    margin-top: 1rem;
-    margin-left: 1rem;
     height: 5.5rem;
-    width: 38rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: start;
   }
-  .social {
-    background: salmon;
-    position: relative;
-    overflow: hidden;
-  }
-  .funding {
-    background: yellow;
-  }
-  .contributions {
-    background: lightskyblue;
-  }
-
   .c0 {
     background: #eee;
   }
@@ -225,7 +221,7 @@
 </style>
 
 <h1>Global Innovation Team</h1>
-<h2>Collaboration &nbsp; x &nbsp; Contributions</h2>
+<h2>Collaboration   x   Contributions</h2>
 <hr />
 
 <h2>100 x Social Votes >></h2>
