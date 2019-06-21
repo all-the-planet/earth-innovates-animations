@@ -187,14 +187,23 @@
   .social {
     background: salmon;
     width: 100vw;
+    background-image: url("realtime.png");
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .funding {
     background: yellow;
     width: 100vw;
+    background-image: url("monetary.png");
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .contributions {
     background: lightskyblue;
     width: 100vw;
+    background-image: url("network.png");
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .network {
     height: 5.5rem;
